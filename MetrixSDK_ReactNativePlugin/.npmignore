@@ -1,0 +1,9 @@
+/android/local.properties
+/node_modules
+/.idea
+/.circleci
+/.DS_Store
+/example
+/android/build
+/android/.idea
+
