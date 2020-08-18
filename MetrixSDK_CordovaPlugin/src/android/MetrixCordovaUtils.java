@@ -21,7 +21,6 @@ public class MetrixCordovaUtils {
     public static final String COMMAND_TRACK_SIMPLE_REVENUE = "trackSimpleRevenue";
     public static final String COMMAND_ADD_USER_DEFAULT_ATTRIBUTES = "addUserDefaultAttributes";
     public static final String COMMAND_SET_DEEPLINK_RESPONSE_CALLBACK = "setDeeplinkResponseListener";
-    public static final String COMMAND_APP_WILL_OPEN_URL = "appWillOpenUrl";
     public static final String COMMAND_SET_USER_ID_LISTENER = "setUserIdListener";
     public static final String COMMAND_GET_SESSION_ID = "getSessionId";
     public static final String COMMAND_SET_SHOULD_LAUNCH_DEEPLINK = "setShouldLaunchDeeplink";

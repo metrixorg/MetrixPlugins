@@ -58,10 +58,6 @@ public class MetrixCordova extends CordovaPlugin {
             setDeeplinkListener();
         } else if (action.equals(COMMAND_ADD_USER_DEFAULT_ATTRIBUTES)) {
             addUserAttributes(args);
-        } else if (action.equals(COMMAND_APP_WILL_OPEN_URL)) {
-            String url = args.getString(0);
-            final Uri uri = Uri.parse(url);
-            ir.metrix.Metrix.appWillOpenUrl(uri);
         } else if (action.equals(COMMAND_SET_USER_ID_LISTENER)) {
             userIdCallbackContext = callbackContext;
             setUserIdListener();

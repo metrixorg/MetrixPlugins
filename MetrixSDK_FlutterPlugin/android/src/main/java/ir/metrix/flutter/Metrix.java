@@ -77,13 +77,6 @@ public class Metrix implements FlutterPlugin, MethodCallHandler {
                 result.success(ir.metrix.Metrix.getSessionId());
                 break;
             }
-            case "appWillOpenUrl": {
-                String uri = call.argument("uri");
-                if (uri != null) {
-                    ir.metrix.Metrix.appWillOpenUrl(Uri.parse(uri));
-                }
-                break;
-            }
             case "newRevenue": {
                 String slug = call.argument("slug");
                 Double amount = call.argument("amount");

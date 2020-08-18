@@ -44,10 +44,6 @@ Metrix.setUserIdListener = function(callback) {
     module_metrix.setUserIdListener(callback);
 };
 
-Metrix.appWillOpenUrl = function(uri) {
-    module_metrix.appWillOpenUrl(uri);
-};
-
 Metrix.newEvent = function(eventName, customAttributes) {
     if (customAttributes) {
         module_metrix.newCustomEvent(eventName, customAttributes);

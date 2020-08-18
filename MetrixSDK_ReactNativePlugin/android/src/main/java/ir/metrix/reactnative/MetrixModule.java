@@ -89,11 +89,6 @@ public class MetrixModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void appWillOpenUrl(String uri) {
-        ir.metrix.Metrix.appWillOpenUrl(Uri.parse(uri));
-    }
-
-    @ReactMethod
     public void setAppSecret(int secretId, long info1, long info2, long info3, long info4) {
         ir.metrix.Metrix.setAppSecret(secretId, info1, info2, info3, info4);
     }

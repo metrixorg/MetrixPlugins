@@ -109,10 +109,6 @@ var Metrix = {
             callCordova('trackSimpleRevenue', slug, amount, cr);
         }       
     },
-
-    appWillOpenUrl: function(url) {
-        callCordova('appWillOpenUrl', url);
-    },
 };
 
 module.exports = Metrix;

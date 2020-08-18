@@ -23,12 +23,6 @@ class Metrix {
     });
   }
 
-  static void appWillOpenUrl(String url) {
-    _channel.invokeMethod('appWillOpenUrl', {
-      'uri': url
-    });
-  }
-
   static void newRevenue(
       String slug, double amount, int currency, String orderId) {
     _channel.invokeMethod('newRevenue', {

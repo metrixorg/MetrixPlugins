@@ -17,23 +17,28 @@ namespace ir.metrix.unity
         {
             return metrix.CallStatic<Int32>("getSessionNum");
         }
+        
         public static string GetSessionId()
         {
             return metrix.CallStatic<String>("getSessionId");
         }
+        
         public static void NewEvent(string eventName)
         {
 			metrix.CallStatic("newEvent", eventName);
         }
+        
         public static void NewEvent(string eventName,
                                     Dictionary<string, string> customAttributes)
         {
             metrix.CallStatic("newEvent", eventName, ConvertDictionaryToMap(customAttributes));
         }
+        
         public static void NewRevenue(string slug, double revenue)
         {
             metrix.CallStatic("newRevenueSimple", slug, revenue);
         }
+        
         public static void NewRevenue(string slug, double revenue, int currency)
         {
             string cr = null;
@@ -51,6 +56,7 @@ namespace ir.metrix.unity
             }
             metrix.CallStatic("newRevenueCurrency", slug, revenue, cr);
         }
+        
         public static void NewRevenue(string slug, double revenue, int currency, string orderId)
         {
             string cr = null;
@@ -68,38 +74,42 @@ namespace ir.metrix.unity
             }
             metrix.CallStatic("newRevenueFull", slug, revenue, cr, orderId);
         }
+        
         public static void NewRevenue(string slug, double revenue, string orderId)
         {
             metrix.CallStatic("newRevenueOrderId", slug, revenue, orderId);
         }
-        public static void AppWillOpenUrl(string deeplink)
-        {
-            metrix.CallStatic("appWillOpenUrl", deeplink);
-        }
+        
         public static void AddUserAttributes(Dictionary<string, string> userAttrs)
         {
             metrix.CallStatic("addUserAttributes", ConvertDictionaryToMap(userAttrs));
         }
+        
         public static void SetShouldLaunchDeeplink(bool launch)
         {
             shouldLaunchDeferredDeeplink = launch;
         }
+        
         public static void SetPushToken(string pushToken)
         {
             metrix.CallStatic("setPushToken", pushToken);
         }
+        
         public static void SetStore(string storeName)
         {
             metrix.CallStatic("setStore", storeName);
         }
+        
         public static void SetAppSecret(int secretId, long info1, long info2, long info3, long info4)
         {
             metrix.CallStatic("setAppSecret", secretId, info1, info2, info3, info4);
         }
+        
         public static void SetDefaultTracker(string trackerToken)
         {
             metrix.CallStatic("setDefaultTracker", trackerToken);
         }
+        
         public static void SetUserIdListener(Action<string> callback)
         {
             if (metrixManager == null)
@@ -146,6 +156,7 @@ namespace ir.metrix.unity
                 deferredDeeplinkDelegate(uri);
             }
         }
+        
         public static void OnReceiveUserIdListener(String userId)
         {
             if (userIdDelegate != null)

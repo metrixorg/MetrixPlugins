@@ -138,11 +138,4 @@ export class Metrix extends IonicNativePlugin {
      */
     @Cordova({ sync: true })
     newRevenue(slug: string, amount: number, currency?: number, orderId?: string): void {}
-
-    /**
-     * By making this call, the Metrix SDK will try to find if there is any new attribution info inside of the deep link and if any, it will be sent to the Metrix backend.
-     * @param {string} url URL of the deeplink
-     */
-    @Cordova({ sync: true })
-    appWillOpenUrl(url: string): void {}
 }
