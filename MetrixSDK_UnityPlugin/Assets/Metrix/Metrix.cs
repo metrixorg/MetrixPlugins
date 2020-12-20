@@ -1,47 +1,126 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+#if UNITY_IOS && !UNITY_EDITOR
+using System.Runtime.InteropServices;
+#endif
 
 namespace ir.metrix.unity
 {
     public class Metrix
     {
-		private static AndroidJavaClass metrix = new AndroidJavaClass("ir.metrix.unity.MetrixUnity");
+
+    #if UNITY_ANDROID && !UNITY_EDITOR
+        private static AndroidJavaClass metrixAndroid = new AndroidJavaClass("ir.metrix.unity.MetrixUnity");
+    #endif
+
+    #if UNITY_IOS && !UNITY_EDITOR
+        [DllImport ("__Internal")]
+        private static extern void _Initialize(string appId);
+        [DllImport ("__Internal")]
+        private static extern int _GetSessionNum();
+        [DllImport ("__Internal")]
+        private static extern string _GetSessionId();
+        [DllImport ("__Internal")]
+        private static extern void _NewEvent(string slug);
+        [DllImport ("__Internal")]
+        private static extern void _NewAttributedEvent(string slug, string customAttributes);
+        [DllImport ("__Internal")]
+        private static extern void _NewRevenue(string slug, double revenue);
+        [DllImport ("__Internal")]
+        private static extern void _NewRevenueCurrency(string slug, double revenue, int currency);
+        [DllImport ("__Internal")]
+        private static extern void _NewRevenueFull(string slug, double revenue, int currency, string orderId);
+        [DllImport ("__Internal")]
+        private static extern void _NewRevenueOrderId(string slug, double revenue, string orderId);
+        [DllImport ("__Internal")]
+        private static extern void _AddUserAttributes(string userAttrs);
+        [DllImport ("__Internal")]
+        private static extern void _SetPushToken(string pushToken);
+        [DllImport ("__Internal")]
+        private static extern void _SetStore(string storeName);
+        [DllImport ("__Internal")]
+        private static extern void _SetAppSecret(int secretId, long info1, long info2, long info3, long info4);
+        [DllImport ("__Internal")]
+        private static extern void _SetDefaultTracker(string trackerToken);
+        [DllImport ("__Internal")]
+        private static extern void _SetUserIdListener();
+        [DllImport ("__Internal")]
+        private static extern void _SetDeeplinkResponseListener(bool shouldLaunchDeferredDeeplink);
+        [DllImport ("__Internal")]
+        private static extern void _SetAttributionChangedListener();
+    #endif
+
         private static GameObject metrixManager = null;
+        
         private static Action<string> deferredDeeplinkDelegate = null;
         private static Action<MetrixAttribution> userAttributionDelegate = null;
         private static Action<string> userIdDelegate = null;
+        
         private static bool shouldLaunchDeferredDeeplink = true;
+
+        // Not used in Android
+        public static void Initialize(string appId)
+        {
+        #if UNITY_IOS && !UNITY_EDITOR
+            _Initialize(appId);
+        #endif
+        }
 
         public static int GetSessionNum()
         {
-            return metrix.CallStatic<Int32>("getSessionNum");
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            return metrixAndroid.CallStatic<Int32>("getSessionNum");
+        #elif UNITY_IOS && !UNITY_EDITOR
+            return _GetSessionNum();
+        #else
+            return 0;
+        #endif
         }
         
         public static string GetSessionId()
         {
-            return metrix.CallStatic<String>("getSessionId");
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            return metrixAndroid.CallStatic<String>("getSessionId");
+        #elif UNITY_IOS && !UNITY_EDITOR
+            return _GetSessionId();
+        #else
+            return "";
+        #endif
         }
         
-        public static void NewEvent(string eventName)
+        public static void NewEvent(string slug)
         {
-			metrix.CallStatic("newEvent", eventName);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+			metrixAndroid.CallStatic("newEvent", slug);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewEvent(slug);
+        #endif
         }
         
-        public static void NewEvent(string eventName,
+        public static void NewEvent(string slug,
                                     Dictionary<string, string> customAttributes)
         {
-            metrix.CallStatic("newEvent", eventName, ConvertDictionaryToMap(customAttributes));
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("newEvent", slug, ConvertDictionaryToMap(customAttributes));
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewAttributedEvent(slug, ConvertDictionaryToString(customAttributes));
+        #endif
         }
         
         public static void NewRevenue(string slug, double revenue)
         {
-            metrix.CallStatic("newRevenueSimple", slug, revenue);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("newRevenueSimple", slug, revenue);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewRevenue(slug, revenue);
+        #endif
         }
         
         public static void NewRevenue(string slug, double revenue, int currency)
         {
-            string cr = null;
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            string cr;
             if (currency == 0)
             {
                 cr = "IRR";
@@ -54,12 +133,16 @@ namespace ir.metrix.unity
             {
                 cr = "EUR";
             }
-            metrix.CallStatic("newRevenueCurrency", slug, revenue, cr);
+            metrixAndroid.CallStatic("newRevenueCurrency", slug, revenue, cr);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewRevenueCurrency(slug, revenue, currency);    
+        #endif
         }
         
         public static void NewRevenue(string slug, double revenue, int currency, string orderId)
         {
-            string cr = null;
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            string cr;
             if (currency == 0)
             {
                 cr = "IRR";
@@ -72,17 +155,28 @@ namespace ir.metrix.unity
             {
                 cr = "EUR";
             }
-            metrix.CallStatic("newRevenueFull", slug, revenue, cr, orderId);
+            metrixAndroid.CallStatic("newRevenueFull", slug, revenue, cr, orderId);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewRevenueFull(slug, revenue, currency, orderId);
+        #endif
         }
         
         public static void NewRevenue(string slug, double revenue, string orderId)
         {
-            metrix.CallStatic("newRevenueOrderId", slug, revenue, orderId);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("newRevenueOrderId", slug, revenue, orderId);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _NewRevenueOrderId(slug, revenue, orderId);
+        #endif
         }
         
         public static void AddUserAttributes(Dictionary<string, string> userAttrs)
         {
-            metrix.CallStatic("addUserAttributes", ConvertDictionaryToMap(userAttrs));
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("addUserAttributes", ConvertDictionaryToMap(userAttrs));
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _AddUserAttributes(ConvertDictionaryToString(userAttrs));
+        #endif
         }
         
         public static void SetShouldLaunchDeeplink(bool launch)
@@ -92,22 +186,38 @@ namespace ir.metrix.unity
         
         public static void SetPushToken(string pushToken)
         {
-            metrix.CallStatic("setPushToken", pushToken);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setPushToken", pushToken);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetPushToken(pushToken);
+        #endif
         }
         
         public static void SetStore(string storeName)
         {
-            metrix.CallStatic("setStore", storeName);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setStore", storeName);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetStore(storeName);
+        #endif
         }
         
         public static void SetAppSecret(int secretId, long info1, long info2, long info3, long info4)
         {
-            metrix.CallStatic("setAppSecret", secretId, info1, info2, info3, info4);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setAppSecret", secretId, info1, info2, info3, info4);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetAppSecret(secretId, info1, info2, info3, info4);
+        #endif
         }
         
         public static void SetDefaultTracker(string trackerToken)
         {
-            metrix.CallStatic("setDefaultTracker", trackerToken);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setDefaultTracker", trackerToken);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetDefaultTracker(trackerToken);
+        #endif
         }
         
         public static void SetUserIdListener(Action<string> callback)
@@ -120,7 +230,11 @@ namespace ir.metrix.unity
             }
 
             userIdDelegate = callback;
-            metrix.CallStatic("setUserIdListener");
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setUserIdListener");
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetUserIdListener();
+        #endif
         }
 
         public static void SetDeeplinkResponseListener(Action<string> callback)
@@ -133,7 +247,11 @@ namespace ir.metrix.unity
             }
 
             deferredDeeplinkDelegate = callback;
-            metrix.CallStatic("setOnDeeplinkResponseListener", shouldLaunchDeferredDeeplink);
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setOnDeeplinkResponseListener", shouldLaunchDeferredDeeplink);
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetDeeplinkResponseListener(shouldLaunchDeferredDeeplink);
+        #endif
         }
 
         public static void SetAttributionChangedListener(Action<MetrixAttribution> callback)
@@ -146,10 +264,14 @@ namespace ir.metrix.unity
             }
 
             userAttributionDelegate = callback;
-            metrix.CallStatic("setOnAttributionChangedListener");
+        #if UNITY_ANDROID && !UNITY_EDITOR
+            metrixAndroid.CallStatic("setOnAttributionChangedListener");
+        #elif UNITY_IOS && !UNITY_EDITOR
+            _SetAttributionChangedListener();
+        #endif
         }
 
-        public static void OnDeferredDeeplink(String uri)
+        public static void OnDeferredDeeplink(string uri)
         {
             if (deferredDeeplinkDelegate != null)
             {
@@ -157,7 +279,7 @@ namespace ir.metrix.unity
             }
         }
         
-        public static void OnReceiveUserIdListener(String userId)
+        public static void OnReceiveUserIdListener(string userId)
         {
             if (userIdDelegate != null)
             {
@@ -165,12 +287,26 @@ namespace ir.metrix.unity
             }
         }
 
-        public static void OnAttributionChangeListener(String attributionDataString)
+        public static void OnAttributionChangeListener(string attributionDataString)
         {
             if (userAttributionDelegate != null)
             {
                 userAttributionDelegate(new MetrixAttribution(attributionDataString));
             }
+        }
+
+        private static string ConvertDictionaryToString(IDictionary<string, string> parameters)
+        {
+            string parametersString = "";
+            foreach (KeyValuePair<string, string> kvp in parameters)
+            {
+                parametersString = parametersString + kvp.Key;
+                parametersString = parametersString + "=";
+                parametersString = parametersString + kvp.Value;
+                parametersString = parametersString + "\n";
+            }
+
+            return parametersString;   
         }
         
         private static AndroidJavaObject ConvertDictionaryToMap(IDictionary<string, string> parameters)
@@ -201,4 +337,3 @@ namespace ir.metrix.unity
         }
     }
 }
-
