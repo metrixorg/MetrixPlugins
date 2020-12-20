@@ -7,9 +7,21 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Metrix.Initialize("nwfgohxcsgvokrb");
+
         Metrix.SetAttributionChangedListener(AttributionChangedCallback);
 
         Metrix.NewEvent("perzu");
+        var attributes = new Dictionary<string, string>();
+        attributes.Add("one", "two");
+        attributes.Add("three", "four");
+        Metrix.NewEvent("perzu", attributes);
+
+        Metrix.NewRevenue("ubdya", 23.44);
+        Metrix.NewRevenue("ubdya", 23.44, 1);
+        Metrix.NewRevenue("ubdya", 23.44, "someOrderId");
+        Metrix.NewRevenue("ubdya", 23.44, 2, "someOtherOrderId");
+
         Metrix.SetPushToken("token");
 
         Metrix.SetShouldLaunchDeeplink(true);
@@ -17,7 +29,7 @@ public class Main : MonoBehaviour
 
         Metrix.SetDefaultTracker("cf9z0p");
         
-        // Metrix.SetAppSecret(2, 12345, 12345, 12345, 12345);
+        Metrix.SetAppSecret(1, 355278893, 787077622, 1908838480, 32828824);
         
         Metrix.SetStore("google play");
 
@@ -26,10 +38,10 @@ public class Main : MonoBehaviour
         Debug.Log("[MetrixExample]: SessionId: " + Metrix.GetSessionId());
         Debug.Log("[MetrixExample]: SessionNum: " + Metrix.GetSessionNum());
 
-        var attributes = new Dictionary<string, string>();
-        attributes.Add("first", "Ken");
-        attributes.Add("last", "Adams");
-        Metrix.AddUserAttributes(attributes);
+        var attributes2 = new Dictionary<string, string>();
+        attributes2.Add("first", "Ken");
+        attributes2.Add("last", "Adams");
+        Metrix.AddUserAttributes(attributes2);
     }
 
     public void UserIdCallback(string userId)
