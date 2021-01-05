@@ -120,7 +120,7 @@ namespace ir.metrix.unity
         public static void NewRevenue(string slug, double revenue, int currency)
         {
         #if UNITY_ANDROID && !UNITY_EDITOR
-            string cr;
+            string cr = "IRR";
             if (currency == 0)
             {
                 cr = "IRR";
@@ -142,7 +142,7 @@ namespace ir.metrix.unity
         public static void NewRevenue(string slug, double revenue, int currency, string orderId)
         {
         #if UNITY_ANDROID && !UNITY_EDITOR
-            string cr;
+            string cr = "IRR";
             if (currency == 0)
             {
                 cr = "IRR";
