@@ -1,0 +1,9 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="ir.metrix:unity:1.0.0">
+            <repositories>
+                <repository>https://dl.bintray.com/metrixorg/maven/</repository>
+            </repositories>
+        </androidPackage>
+    </androidPackages>
+</dependencies>
