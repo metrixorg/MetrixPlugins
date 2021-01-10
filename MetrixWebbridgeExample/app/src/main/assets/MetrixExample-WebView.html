@@ -32,10 +32,11 @@
                 alert('UserId:\n' + userId);
             }
 
-            Metrix.shouldLaunchDeeplink = true;
+            Metrix.setOnAttributionChangedListener(attributionCallback);
 
-            Metrix.setUserAttributionListener(attributionCallback);
-            Metrix.setDeeplinkResponseListener(deferredDeeplinkCallback);
+            Metrix.shouldLaunchDeeplink = true;
+            Metrix.setOnDeeplinkResponseListener(deferredDeeplinkCallback);
+
             Metrix.setUserIdListener(userIdCallback);
 
 
