@@ -19,8 +19,8 @@
 - (void) setAppSecretWithSecretId:(NSInteger)secretId info1:(NSInteger)info1 info2:(NSInteger)info2 info3:(NSInteger)info3 info4:(NSInteger)info4;
 - (void) setDefaultTrackerWithTrackerToken:(NSString * _Nonnull)trackerToken;
 - (void) setUserIdListener;
-- (void) setDeeplinkResponseListener:(bool)shouldLaunchDeferredDeeplink;
-- (void) setAttributionChangedListener;
+- (void) setOnDeeplinkResponseListener:(bool)shouldLaunchDeferredDeeplink;
+- (void) setOnAttributionChangedListener;
 
 @end
 
@@ -117,7 +117,7 @@ static NSString *ON_ATTRIBUTION_CHANGE_LISTENER = @"OnAttributionChangeListener"
     }];
 }
 
-- (void) setDeeplinkResponseListener:(bool)shouldLaunchDeferredDeeplink
+- (void) setOnDeeplinkResponseListener:(bool)shouldLaunchDeferredDeeplink
 {
     [Metrix setOnDeeplinkResponseListener:^BOOL(NSString *string) {
         UnitySendMessage([MANAGER_OBJECT UTF8String], [ON_DEFERRED_DEEPLINK UTF8String], [string UTF8String]);
@@ -125,7 +125,7 @@ static NSString *ON_ATTRIBUTION_CHANGE_LISTENER = @"OnAttributionChangeListener"
     }];
 }
 
-- (void) setAttributionChangedListener
+- (void) setOnAttributionChangedListener
 {
     [Metrix setOnAttributionChangedListener:^(AttributionData *data) {
         UnitySendMessage([MANAGER_OBJECT UTF8String], [ON_ATTRIBUTION_CHANGE_LISTENER UTF8String], [data.jsonValue UTF8String]);
@@ -242,13 +242,13 @@ extern "C" {
         [[MetrixPlugin sharedInstance] setUserIdListener];
     }
     
-    void _SetDeeplinkResponseListener(bool shouldLaunchDeferredDeeplink)
+    void _SetOnDeeplinkResponseListener(bool shouldLaunchDeferredDeeplink)
     {
-        [[MetrixPlugin sharedInstance] setDeeplinkResponseListener:shouldLaunchDeferredDeeplink];
+        [[MetrixPlugin sharedInstance] setOnDeeplinkResponseListener:shouldLaunchDeferredDeeplink];
     }
 
-    void _SetAttributionChangedListener()
+    void _SetOnAttributionChangedListener()
     {
-        [[MetrixPlugin sharedInstance] setAttributionChangedListener];
+        [[MetrixPlugin sharedInstance] setOnAttributionChangedListener];
     }
 }

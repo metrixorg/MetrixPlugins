@@ -9,7 +9,7 @@ public class Main : MonoBehaviour
     {
         Metrix.Initialize("nwfgohxcsgvokrb");
 
-        Metrix.SetAttributionChangedListener(AttributionChangedCallback);
+        Metrix.SetOnAttributionChangedListener(AttributionChangedCallback);
 
         Metrix.NewEvent("perzu");
         var attributes = new Dictionary<string, string>();
@@ -25,7 +25,7 @@ public class Main : MonoBehaviour
         Metrix.SetPushToken("token");
 
         Metrix.SetShouldLaunchDeeplink(true);
-        Metrix.SetDeeplinkResponseListener(DeeplinkCallback);
+        Metrix.SetOnDeeplinkResponseListener(DeeplinkCallback);
 
         Metrix.SetDefaultTracker("cf9z0p");
         

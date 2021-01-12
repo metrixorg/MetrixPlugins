@@ -46,9 +46,9 @@ namespace ir.metrix.unity
         [DllImport ("__Internal")]
         private static extern void _SetUserIdListener();
         [DllImport ("__Internal")]
-        private static extern void _SetDeeplinkResponseListener(bool shouldLaunchDeferredDeeplink);
+        private static extern void _SetOnDeeplinkResponseListener(bool shouldLaunchDeferredDeeplink);
         [DllImport ("__Internal")]
-        private static extern void _SetAttributionChangedListener();
+        private static extern void _SetOnAttributionChangedListener();
     #endif
 
         private static GameObject metrixManager = null;
@@ -237,7 +237,7 @@ namespace ir.metrix.unity
         #endif
         }
 
-        public static void SetDeeplinkResponseListener(Action<string> callback)
+        public static void SetOnDeeplinkResponseListener(Action<string> callback)
         {
             if (metrixManager == null)
             {
@@ -250,11 +250,11 @@ namespace ir.metrix.unity
         #if UNITY_ANDROID && !UNITY_EDITOR
             metrixAndroid.CallStatic("setOnDeeplinkResponseListener", shouldLaunchDeferredDeeplink);
         #elif UNITY_IOS && !UNITY_EDITOR
-            _SetDeeplinkResponseListener(shouldLaunchDeferredDeeplink);
+            _SetOnDeeplinkResponseListener(shouldLaunchDeferredDeeplink);
         #endif
         }
 
-        public static void SetAttributionChangedListener(Action<MetrixAttribution> callback)
+        public static void SetOnAttributionChangedListener(Action<MetrixAttribution> callback)
         {
             if (metrixManager == null)
             {
@@ -267,7 +267,7 @@ namespace ir.metrix.unity
         #if UNITY_ANDROID && !UNITY_EDITOR
             metrixAndroid.CallStatic("setOnAttributionChangedListener");
         #elif UNITY_IOS && !UNITY_EDITOR
-            _SetAttributionChangedListener();
+            _SetOnAttributionChangedListener();
         #endif
         }
 
