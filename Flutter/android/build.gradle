@@ -1,0 +1,38 @@
+group 'ir.metrix.flutter'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation 'ir.metrix:flutter:1.0.0-alpha3'
+}

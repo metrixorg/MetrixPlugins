@@ -1,7 +1,0 @@
-{
-  "name": "metrix-ionic-test",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}

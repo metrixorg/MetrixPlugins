@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Metrix Ionic Example App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click) = "sendSimpleEvent()" icon-start large round color="dark">
+    <ion-icon name="star"></ion-icon>
+    Send Simple Event
+    <ion-icon name="star"></ion-icon>
+  </button>
+  <button ion-button (click) = "sendEventWithAttributes()" icon-start large round color="dark">
+    <ion-icon name="star"></ion-icon>
+    Send Event With Attributes
+    <ion-icon name="star"></ion-icon>
+  </button>
+  <button ion-button (click) = "sendSimpleRevenue()" icon-start large round color="dark">
+    <ion-icon name="star"></ion-icon>
+    Send Simple Revenue
+    <ion-icon name="star"></ion-icon>
+  </button>
+  <button ion-button (click) = "sendFullRevenue()" icon-start large round color="dark">
+    <ion-icon name="star"></ion-icon>
+    Send Full Revenue
+    <ion-icon name="star"></ion-icon>
+  </button>
+</ion-content>
