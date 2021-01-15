@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { Metrix } from 'react-native-metrix-test';
+import { Metrix } from "@metrixorg/react-native-plugin";
 
 
 class App extends React.Component {
