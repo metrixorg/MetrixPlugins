@@ -1,3 +1,3 @@
 # MetrixSDK Flutter Plugin Example
 
-Demonstrates how to use the MetrixSDK Flutter plugin.
+Demonstrates how to use the Metrix SDK Flutter plugin.

@@ -1,14 +1,11 @@
-# MetrixSDK Flutter Plugin
+## MetrixSDK Flutter Plugin [![pub package](https://img.shields.io/pub/v/metrix_plugin.svg)](https://pub.dartlang.org/packages/metrix_plugin)
 
-A new flutter plugin project.
+<div dir="rtl">
+  
+پلاگین فلاتر sdk متریکس، اطلاعات بیشتر در [متریکس](https://metrix.ir).
 
-## Getting Started
+<h2>راه اندازی</h2>
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+برای راه اندازی میتوانید از مستندات [اینجا](https://docs.metrix.ir/metrix-sdk-v1/flutter) استفاده نماید. 
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+</div>

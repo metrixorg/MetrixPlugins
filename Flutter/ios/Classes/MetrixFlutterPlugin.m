@@ -1,11 +1,11 @@
-#import "MetrixSDKFlutterPlugin.h"
+#import "MetrixFlutterPlugin.h"
 
 @implementation MetrixSDKFlutterPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"MetrixSDK_FlutterPlugin"
+      methodChannelWithName:@"MetrixFlutterPlugin"
             binaryMessenger:[registrar messenger]];
-  MetrixSDKFlutterPlugin* instance = [[MetrixSDKFlutterPlugin alloc] init];
+  MetrixFlutterPlugin* instance = [[MetrixFlutterPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 

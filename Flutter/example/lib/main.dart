@@ -1,5 +1,5 @@
-import 'package:Metrix/Metrix.dart';
-import 'package:Metrix/MetrixAttribution.dart';
+import 'package:metrix_plugin/Metrix.dart';
+import 'package:metrix_plugin/MetrixAttribution.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
