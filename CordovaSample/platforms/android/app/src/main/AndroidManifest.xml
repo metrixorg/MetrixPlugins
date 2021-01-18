@@ -9,6 +9,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="metrix_appId" android:value="yfgetewbvkowsze" />
+        <meta-data android:name="metrix_appId" android:value="zcmwmxbkmuodelu" />
     </application>
 </manifest>

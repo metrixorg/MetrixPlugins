@@ -13,10 +13,10 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@metrixorg/cordova-metrix": "file:../MetrixSDK_CordovaPlugin",
     "cordova-android": "^8.1.0"
   },
   "devDependencies": {
+    "@metrixorg/cordova-plugin": "^1.0.0",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {

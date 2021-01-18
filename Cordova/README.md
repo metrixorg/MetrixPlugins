@@ -1,5 +1,5 @@
 
-## MetrixSDK Cordova Plugin [![npm version](https://badge.fury.io/js/%40metrixorg%2Fcordova-metrix.svg)](https://badge.fury.io/js/%40metrixorg%2Fcordova-metrix)
+## MetrixSDK Cordova Plugin [![npm version](https://badge.fury.io/js/%40metrixorg%2Fcordova-plugin.svg)](https://badge.fury.io/js/%40metrixorg%2Fcordova-plugin)
 <div dir="rtl">
   
 پلاگین کوردوا sdk متریکس، اطلاعات بیشتر در [متریکس](https://metrix.ir).
@@ -7,6 +7,6 @@
 
 <h2>راه اندازی</h2>
 
-برای راه اندازی میتوانید از مستندات [اینجا](https://docs.metrix.ir/sdk/cordova) استفاده نماید. 
+برای راه اندازی می‌توانید از مستندات [اینجا](https://docs.metrix.ir/metrix-sdk-v1/cordova) استفاده نماید. 
 
 </div>

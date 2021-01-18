@@ -40,7 +40,7 @@ var Metrix = {
         }
     },
 
-    setAttributionChangeListener: function(callback) {
+    setOnAttributionChangedListener: function(callback) {
         if (callback != null) {
             callCordovaCallback('setAttributionChangeListener', callback);
         }
@@ -74,7 +74,7 @@ var Metrix = {
         callCordova('setShouldLaunchDeeplink', launch);
     },
 
-    setDeeplinkResponseListener: function(callback) {
+    setOnDeeplinkResponseListener: function(callback) {
         if (callback != null) {
             callCordovaCallback('setDeeplinkResponseListener', callback, this.shouldLaunchDeeplink);
         }

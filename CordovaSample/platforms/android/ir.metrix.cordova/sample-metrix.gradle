@@ -1,8 +1,8 @@
 repositories {
-    mavenLocal()
+    maven() { url "https://dl.bintray.com/metrixorg/maven" }
     jcenter()
 }
 
 dependencies {
-    implementation 'ir.metrix:cordova:1.0.0-alpha3'
+    implementation 'ir.metrix:cordova:1.0.0'
 }

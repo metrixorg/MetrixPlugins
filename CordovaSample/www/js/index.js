@@ -15,7 +15,7 @@ var app = {
     },
 
     initMetrix: function () {
-        Metrix.setAttributionChangeListener(function(attribution) {
+        Metrix.setOnAttributionChangedListener(function(attribution) {
             console.log("[MetrixExample]: Attribution callback received.");
             console.log("[MetrixExample]: acquisitionAd = " + attribution.acquisitionAd);
             console.log("[MetrixExample]: acquisitionAdSet = " + attribution.acquisitionAdSet);
@@ -27,7 +27,7 @@ var app = {
         Metrix.setPushToken("token");
 
         Metrix.setShouldLaunchDeeplink(true);
-        Metrix.setDeeplinkResponseListener(function(deeplink) {
+        Metrix.setOnDeeplinkResponseListener(function(deeplink) {
             console.log("[MetrixExample]: Deeplink callback received. deeplink: " + deeplink);
         });
 

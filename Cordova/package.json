@@ -1,6 +1,6 @@
 {
-    "name": "@metrixorg/cordova-metrix",
-    "version": "1.0.0-alpha3",
+    "name": "@metrixorg/cordova-plugin",
+    "version": "1.0.0",
     "description": "Metrix SDK plugin for Cordova",
     "author": "Metrix",
     "license": "Apache 2.0 License",
@@ -23,10 +23,11 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/metrixorg/MetrixSDK-CordovaPlugin.git"
+        "url": "git+git+https://github.com/metrixorg/MetrixPlugins/tree/master/Cordova"
     },
     "keywords": [
         "metrix",
+        "attribution",
         "analytics",
         "ecosystem:cordova"
     ],
