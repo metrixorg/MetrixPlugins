@@ -7,6 +7,6 @@
 
 <h2>راه اندازی</h2>
 
-برای راه اندازی میتوانید از مستندات [اینجا](https://docs.metrix.ir/metrix-sdk-v1/react-native/) استفاده نماید. 
+برای راه اندازی میتوانید از مستندات [اینجا](https://docs.metrix.ir/sdk/react-native/) استفاده نماید. 
 
 </div>
