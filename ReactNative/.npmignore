@@ -3,7 +3,6 @@
 /.idea
 /.circleci
 /.DS_Store
-/example
 /android/build
 /android/.idea
 /android/.gradle
