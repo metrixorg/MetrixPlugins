@@ -1,6 +1,6 @@
 name: metrix_plugin
 description: Metrix SDK flutter plugin.
-version: 1.0.4
+version: 1.0.5
 homepage: https://metrix.ir
 
 environment:
