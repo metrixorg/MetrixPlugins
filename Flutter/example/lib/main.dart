@@ -33,8 +33,6 @@ class _MyAppState extends State<MyApp> {
       attribution = null;
     });
 
-    Metrix.setDefaultTracker('token');
-    Metrix.setStore('store');
     Metrix.setPushToken('pushToken');
 
     Metrix.addUserAttributes({

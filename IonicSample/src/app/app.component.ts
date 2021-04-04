@@ -48,10 +48,6 @@ export class AppComponent {
         console.log("[MetrixExample]: Deeplink callback received. deeplink: " + deeplink);
     });
 
-    Metrix.setDefaultTracker("trackerToken");
-    // Metrix.setAppSecret(2, 12345, 12345, 12345, 12345);
-    Metrix.setStore("google play");
-
     Metrix.setUserIdListener(function(metrixUserId) {
         console.log("[MetrixExample]: UserId listener called. ID: " + metrixUserId);
     });

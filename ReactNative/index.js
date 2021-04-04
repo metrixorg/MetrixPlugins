@@ -8,18 +8,6 @@ var Metrix = {};
 
 Metrix.shouldLaunchDeeplink = true
 
-Metrix.setAppSecret = function(secretId, info1, info2, info3, info4) {
-    module_metrix.setAppSecret(secretId, info1, info2, info3, info4);
-};
-
-Metrix.setDefaultTracker = function(trackerToken) {
-    module_metrix.setDefaultTracker(trackerToken);
-};
-
-Metrix.setStore = function(storeName) {
-    module_metrix.setStore(storeName);
-};
-
 Metrix.setPushToken = function(token) {
     module_metrix.setPushToken(token);
 };

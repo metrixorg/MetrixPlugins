@@ -22,33 +22,15 @@ function callCordovaCallback(action, callback) {
 }
 
 var Metrix = {
-    setStore: function(storeName) {
-        if (storeName) {
-            callCordova('setStore', storeName);
-        }
-    },
-
     setPushToken: function(token) {
         if (token) {
             callCordova('setPushToken', token);
         }
     },
 
-    setDefaultTracker: function(defaultTracker) {
-        if (defaultTracker) {
-            callCordova('setDefaultTracker', defaultTracker);
-        }
-    },
-
     setOnAttributionChangedListener: function(callback) {
         if (callback != null) {
             callCordovaCallback('setAttributionChangeListener', callback);
-        }
-    },
-
-    setAppSecret: function(secretId, info1, info2, info3, info4) {
-        if (secretId && info1 && info2 && info3 && info4) {
-            callCordova('setAppSecret', secretId, info1, info2, info3, info4);
         }
     },
 

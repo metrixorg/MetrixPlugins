@@ -14,8 +14,6 @@ class App extends React.Component {
             userId: "",
             sessionId: ""
         };
-        Metrix.setDefaultTracker('token');
-        Metrix.setStore('store');
         Metrix.setOnAttributionChangedListener(this.callback);
         Metrix.setPushToken('pushToken');
 

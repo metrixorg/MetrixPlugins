@@ -89,21 +89,6 @@ public class MetrixModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setAppSecret(int secretId, long info1, long info2, long info3, long info4) {
-        ir.metrix.Metrix.setAppSecret(secretId, info1, info2, info3, info4);
-    }
-
-    @ReactMethod
-    public void setDefaultTracker(String trackerToken) {
-        ir.metrix.Metrix.setDefaultTracker(trackerToken);
-    }
-
-    @ReactMethod
-    public void setStore(String storeName) {
-        ir.metrix.Metrix.setStore(storeName);
-    }
-
-    @ReactMethod
     public void setPushToken(String token) {
         ir.metrix.Metrix.setPushToken(token);
     }

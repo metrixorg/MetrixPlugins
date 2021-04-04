@@ -33,28 +33,6 @@ class Metrix {
     });
   }
 
-  static void setAppSecret(int secretId, int info1, int info2, int info3, int info4) {
-    _channel.invokeMethod('setAppSecret', {
-      'secretId': secretId,
-      'info1': info1,
-      'info2': info2,
-      'info3': info3,
-      'info4': info4
-    });
-  }
-
-  static void setDefaultTracker(String trackerToken) {
-    _channel.invokeMethod('setDefaultTracker', {
-      'trackerToken': trackerToken
-    });
-  }
-
-  static void setStore(String storeName) {
-    _channel.invokeMethod('setStore', {
-      'storeName': storeName
-    });
-  }
-
   static void setPushToken(String token) {
     _channel.invokeMethod('setPushToken', {
       'token': token

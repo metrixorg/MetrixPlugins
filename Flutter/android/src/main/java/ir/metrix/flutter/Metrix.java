@@ -91,37 +91,6 @@ public class Metrix implements FlutterPlugin, MethodCallHandler {
                 ir.metrix.Metrix.newRevenue(slug, amount, revenueCurrency, orderId);
                 break;
             }
-            case "setAppSecret": {
-                Integer secretId = call.argument("secretId");
-                Integer info1 = call.argument("info1");
-                Integer info2 = call.argument("info2");
-                Integer info3 = call.argument("info3");
-                Integer info4 = call.argument("info4");
-
-                if (secretId != null
-                        && info1 != null
-                        && info2 != null
-                        && info3 != null
-                        && info4 != null
-                ) {
-                    ir.metrix.Metrix.setAppSecret(secretId, info1, info2, info3, info4);
-                }
-                break;
-            }
-            case "setDefaultTracker": {
-                String token = call.argument("trackerToken");
-                if (token != null) {
-                    ir.metrix.Metrix.setDefaultTracker(token);
-                }
-                break;
-            }
-            case "setStore": {
-                String storeName = call.argument("storeName");
-                if (storeName != null) {
-                    ir.metrix.Metrix.setStore(storeName);
-                }
-                break;
-            }
             case "setPushToken": {
                 String token = call.argument("token");
                 if (token != null) {

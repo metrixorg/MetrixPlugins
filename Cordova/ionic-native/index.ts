@@ -84,17 +84,6 @@ export class Metrix extends IonicNativePlugin {
     newEvent(slug: string, attributes?: Map<string, string> | object): void {}
 
     /**
-     * This method sets the app SDK signature
-     * @param {number} secretId
-     * @param {number} info1
-     * @param {number} info2
-     * @param {number} info3
-     * @param {number} info4
-     */
-    @Cordova({ sync: true })
-    setAppSecret(secretId: number, info1: number, info2: number, info3: number, info4: number): void {}
-
-    /**
      * This method adds the provided attributes to all metrix events
      * @param {Map<string, string> | object} attributes the attributes to be added to all future events
      */
@@ -107,20 +96,6 @@ export class Metrix extends IonicNativePlugin {
      */
     @Cordova()
     setShouldLaunchDeeplink(shouldLaunchDeeplink: boolean): void {}
-
-    /**
-     * This method sets the build store name
-     * @param {string} storeName the store name
-     */
-    @Cordova({ sync: true })
-    setStore(storeName: string): void {}
-    
-    /**
-     * This method sets the build default tracker
-     * @param {string} trackerToken the tracker token
-     */
-    @Cordova({ sync: true })
-    setDefaultTracker(trackerToken: string): void {}
 
     /**
      * This method sets the FCM push token
