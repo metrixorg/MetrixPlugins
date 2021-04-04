@@ -1,9 +1,9 @@
 {
-  "name": "metrixReactNativeSample",
-  "displayName": "metrixReactNativeSample",
+  "name": "ReactNativeSample",
+  "displayName": "ReactNativeSample",
   "expo": {
-    "name": "metrixReactNativeSample",
-    "slug": "metrixReactNativeSample",
+    "name": "ReactNativeSample",
+    "slug": "ReactNativeSample",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

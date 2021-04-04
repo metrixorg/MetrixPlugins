@@ -3,3 +3,5 @@
 .DS_Store
 .idea
 *.tgz
+android/build
+.local-pack/
