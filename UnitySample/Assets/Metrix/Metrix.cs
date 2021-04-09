@@ -193,29 +193,26 @@ namespace ir.metrix.unity
         #endif
         }
         
+        // Not used in Android
         public static void SetStore(string storeName)
         {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            metrixAndroid.CallStatic("setStore", storeName);
-        #elif UNITY_IOS && !UNITY_EDITOR
+        #if UNITY_IOS && !UNITY_EDITOR
             _SetStore(storeName);
         #endif
         }
         
+        // Not used in Android
         public static void SetAppSecret(int secretId, long info1, long info2, long info3, long info4)
         {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            metrixAndroid.CallStatic("setAppSecret", secretId, info1, info2, info3, info4);
-        #elif UNITY_IOS && !UNITY_EDITOR
+        #if UNITY_IOS && !UNITY_EDITOR
             _SetAppSecret(secretId, info1, info2, info3, info4);
         #endif
         }
         
+        // Not used in Android
         public static void SetDefaultTracker(string trackerToken)
         {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            metrixAndroid.CallStatic("setDefaultTracker", trackerToken);
-        #elif UNITY_IOS && !UNITY_EDITOR
+        #if UNITY_IOS && !UNITY_EDITOR
             _SetDefaultTracker(trackerToken);
         #endif
         }
