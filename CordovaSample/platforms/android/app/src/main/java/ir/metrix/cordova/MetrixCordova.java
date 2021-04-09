@@ -30,17 +30,9 @@ public class MetrixCordova extends CordovaPlugin {
         if (action.equals(COMMAND_SET_ATTRIBUTION_CHANGE_LISTENER)) {
             attributionCallbackContext = callbackContext;
             setAttributionListener();
-        } else if (action.equals(COMMAND_SET_STORE)) {
-            String storeName = args.getString(0);
-            ir.metrix.Metrix.setStore(storeName);
-        } else if (action.equals(COMMAND_SET_APP_SECRET)) {
-            setAppSecret(args);
         } else if (action.equals(COMMAND_SET_PUSH_TOKEN)) {
             String token = args.getString(0);
             ir.metrix.Metrix.setPushToken(token);
-        } else if (action.equals(COMMAND_SET_DEFAULT_TRACKER)) {
-            String defaultTracker = args.getString(0);
-            ir.metrix.Metrix.setDefaultTracker(defaultTracker);
         } else if (action.equals(COMMAND_GET_SESSION_NUMBER)) {
             getSessionNumCallbackContext = callbackContext;
             getSessionNum();
@@ -159,15 +151,5 @@ public class MetrixCordova extends CordovaPlugin {
         RevenueCurrency currency = RevenueCurrency.valueOf(args.getString(2));
         String orderId = args.getString(3);
         ir.metrix.Metrix.newRevenue(slug, amount, currency, orderId);
-    }
-
-    private void setAppSecret(final JSONArray args) throws JSONException {
-        int secretId = args.getInt(0);
-        long info1 = args.getLong(1);
-        long info2 = args.getLong(2);
-        long info3 = args.getLong(3);
-        long info4 = args.getLong(4);
-
-        ir.metrix.Metrix.setAppSecret(secretId, info1, info2, info3, info4);
     }
 }

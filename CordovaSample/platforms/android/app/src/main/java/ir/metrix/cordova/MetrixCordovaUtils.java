@@ -9,10 +9,7 @@ import org.json.JSONException;
 import ir.metrix.AttributionData;
 
 public class MetrixCordovaUtils {
-    public static final String COMMAND_SET_STORE = "setStore";
-    public static final String COMMAND_SET_APP_SECRET = "setAppSecret";
     public static final String COMMAND_SET_PUSH_TOKEN = "setPushToken";
-    public static final String COMMAND_SET_DEFAULT_TRACKER = "setDefaultTracker";
     public static final String COMMAND_SET_ATTRIBUTION_CHANGE_LISTENER = "setAttributionChangeListener";
     public static final String COMMAND_GET_SESSION_NUMBER = "getSessionNum";
     public static final String COMMAND_TRACK_SIMPLE_EVENT = "trackSimpleEvent";

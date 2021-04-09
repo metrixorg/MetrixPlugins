@@ -4,5 +4,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'ir.metrix:cordova:1.0.5'
+    implementation 'ir.metrix:cordova:1.1.0'
 }
