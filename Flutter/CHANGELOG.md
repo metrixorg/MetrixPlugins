@@ -1,3 +1,6 @@
+## 1.1.1
+- Change Android native repository to mavenCentral
+
 ## 1.1.0
 
 ## 1.0.5

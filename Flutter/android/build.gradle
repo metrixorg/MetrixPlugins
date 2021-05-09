@@ -1,5 +1,5 @@
 group 'ir.metrix.flutter'
-version '1.1.0'
+version '1.1.1'
 
 buildscript {
     repositories {
@@ -14,7 +14,7 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-        maven() { url "https://dl.bintray.com/metrixorg/maven/" }
+        mavenCentral()
         google()
         jcenter()
     }
