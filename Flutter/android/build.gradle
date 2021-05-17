@@ -1,5 +1,5 @@
 group 'ir.metrix.flutter'
-version '1.1.1'
+version '1.1.2'
 
 buildscript {
     repositories {
@@ -34,5 +34,5 @@ android {
 }
 
 dependencies {
-    implementation 'ir.metrix:flutter:1.1.0'
+    implementation 'ir.metrix:flutter:1.1.1'
 }
