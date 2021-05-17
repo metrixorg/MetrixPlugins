@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 34
-        versionName "1.1.1"
+        versionCode 35
+        versionName "1.1.2"
     }
 
     buildTypes {
@@ -29,6 +29,6 @@ rootProject.allprojects {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'ir.metrix:reactnative:1.1.0'
+    implementation 'ir.metrix:reactnative:1.1.1'
 
 }
