@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="ir.metrix:unity:1.1.1" />
+        <androidPackage spec="ir.metrix:unity:1.1.2" />
     </androidPackages>
 </dependencies>
